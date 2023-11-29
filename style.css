@@ -1,0 +1,54 @@
+/* Default */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+/* Body */
+body {
+    padding-top: 2rem;
+    background: black;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Nav Bar */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 83.875rem;
+    height: 5.438rem;
+    letter-spacing: 1.5px;
+    flex-shrink: 0;
+    gap: 6rem;
+    font-weight: 700;
+    border-radius: 19px;
+    border: 2px solid #FFF;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 44.3px -1px #F79A20;
+    backdrop-filter: blur(4.199999809265137px);
+}
+
+.social {
+    width: 10rem;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    height: 65px;
+}
+
+
+/* Main Div */

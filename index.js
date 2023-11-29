@@ -107,8 +107,13 @@ searchButton.onclick = () => {
 };
 searchInput.addEventListener("input", function (event) {
   inputValue = event.target.value;
-  searchResults(inputValue);
-  closeButton.style.display = "inline";
+
+  if (inputValue == "") {
+    closeButton.style.display = "none";
+  } else {
+    searchResults(inputValue);
+    closeButton.style.display = "inline";
+  }
 });
 
 searchInput.addEventListener("keydown", function (event) {
@@ -131,7 +136,6 @@ function getCat(element) {
 // Close Function
 
 function closeCategory() {
-  console.log("Hi");
   results();
   closeButton.style.display = "none";
   inputValue = "";

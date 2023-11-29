@@ -34,6 +34,8 @@ async function randomFood() {
 
 randomFood();
 
+// Default Category
+
 async function results(
   url = "https://www.themealdb.com/api/json/v1/1/categories.php"
 ) {
@@ -47,19 +49,21 @@ async function results(
       loader.style.display = "none";
 
       data = res.data.categories;
-      console.log(data);
       for (let i = 0; i < data.length; i++) {
-        card += `<div class="result">
+        card += `<div class="result" onclick="getCat(this)">
                 <img src="${data[i]["strCategoryThumb"]}" alt="" class="resultImg">
                 <h2 class="resultTitle">${data[i]["strCategory"]}</h2>
             </div>`;
       }
+      $(".results").html("");
       $(".results").append(card);
     })
     .catch((err) => console.error(err));
 }
 
 results();
+
+// Category Search Result
 
 async function searchResults(query) {
   let url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${query}`;
@@ -71,10 +75,9 @@ async function searchResults(query) {
     .get(url)
     .then((res) => {
       loader.style.display = "none";
-      $("#categoryHeading").css("display", "none");
+      $("#categoryHeading").html(inputValue);
 
       data = res.data.meals;
-      console.log(data);
       for (let i = 0; i < data.length; i++) {
         card += `<div class="Meal">
                 <img src="${data[i]["strMealThumb"]}" alt="" class="mealImg">
@@ -93,11 +96,11 @@ async function searchResults(query) {
 var searchInput = document.getElementById("search");
 var inputValue = "";
 var searchButton = document.getElementById("searchIcon");
-
+var closeButton = document.getElementById("closeButton");
 searchButton.onclick = () => {
   if (inputValue == "") {
-    alert("Please enter a category!");
     results();
+    alert("Please enter a category!");
   } else {
     searchResults(searchInput.value);
   }
@@ -105,6 +108,7 @@ searchButton.onclick = () => {
 searchInput.addEventListener("input", function (event) {
   inputValue = event.target.value;
   searchResults(inputValue);
+  closeButton.style.display = "inline";
 });
 
 searchInput.addEventListener("keydown", function (event) {
@@ -115,3 +119,21 @@ searchInput.addEventListener("keydown", function (event) {
     searchResults(inputValue);
   }
 });
+
+// Click function in available categories
+function getCat(element) {
+  var mealTitle = element.querySelector(".resultTitle").innerText;
+  inputValue = mealTitle;
+  searchResults(inputValue);
+  closeButton.style.display = "inline";
+}
+
+// Close Function
+
+function closeCategory() {
+  console.log("Hi");
+  results();
+  closeButton.style.display = "none";
+  inputValue = "";
+  $("#categoryHeading").html(inputValue);
+}

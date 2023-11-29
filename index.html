@@ -14,15 +14,23 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <a href=""><img src="./assets/logo.png" alt="" id="logo"></a>
-        <a href="">HOME</a>
+        <a href="#" onclick="window.location.reload(true);"><img src="./assets/logo.png" alt="" id="logo"></a>
+        <a href="#" onclick="window.location.reload(true);">HOME</a>
         <a href="#resultsDiv">CATEGORIES</a>
         <a href="">CHEF</a>
         <a href="https://www.buymeacoffee.com/sarveshofficial" target="_blank">BUY ME A COFFEE</a>
         <div class="social">
-            <a href=""><img src="./assets/instagram.png" alt="" id="instagram" target="_blank"></a>
-            <a href=""><img src="./assets/facebook.png" alt="" id="facebook" target="_blank"></a>
-            <a href=""><img src="./assets/x.png" alt="" id="x" target="_blank"></a>
+            <!-- Twitter -->
+            <a href="https://twitter.com/intent/tweet?text=🍳%20Cooking%20made%20easy!%20Explore%20delicious%20recipes%20daily%20with%20Meal%20Hub.%20No%20more%20What%20to%20cook%20today%20struggles.%20Click%20the%20link,%20discover%20simplicity%20in%20every%20dish,%20and%20share%20the%20joy%20of%20stress-free%20cooking!%20🥘%20mealhubsite.netlify.app%20#CookingSolved%20#EasyRecipes%20#MealHub"
+                target="_blank"><img src="./assets/x.png" alt="" id="instagram" target="_blank"></a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=mealhubsite.netlify.app&quote=🍳%20Cooking%20made%20easy!%20Explore%20delicious%20recipes%20daily%20with%20Meal%20Hub.%20No%20more%20What%20to%20cook%20today%20struggles.%20Click%20the%20link,%20discover%20simplicity%20in%20every%20dish,%20and%20share%20the%20joy%20of%20stress-free%20cooking!%20🥘%20#CookingSolved%20#EasyRecipes%20#MealHub"
+                target="_blank"><img src="./assets/facebook.png" alt="" id="x" target="_blank"></a>
+            <!-- Linkedin -->
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mealhubsite.netlify.app/"
+                target="_blank">
+                <img src="./assets/linkedin.png" alt="" id="linkedin">
+            </a>
         </div>
     </nav>
 
@@ -36,7 +44,7 @@
                 </h1>
                 <div class="heroButtondiv">
                     <button class="heroButtons" id="searchButton"><a href="#search">Search</a></button>
-                    <button class="heroButtons" id="viewAll"><a href="#resultsDiv">View All</a></button>
+                    <button class="heroButtons" id="viewAll"><a href="#popularDiv">View Popular</a></button>
                 </div>
             </div>
 
@@ -74,25 +82,25 @@
         </div>
 
         <!-- Popular Categories -->
-        <div class="popularDiv">
+        <div id="popularDiv">
             <p>CUSTOMER FAVORITES</p>
             <h2>Popular Categories</h2>
             <div class="categoryDiv">
-                <div id="indian" class="categories">
+                <div id="indian" class="categories" onclick="searchResults('Vegan')">
                     <img src="./assets/indian.png" alt="" class="categoriesImg">
-                    <h3>Indian</h3>
+                    <h3>Vegan</h3>
                 </div>
-                <div id="chinese" class="categories">
+                <div id="chinese" class="categories" onclick="searchResults('Pork')">
                     <img src="./assets/chinese.jpg" alt="" class="categoriesImg">
-                    <h3>Chinese</h3>
+                    <h3>Pork</h3>
                 </div>
-                <div id="Arabic" class="categories">
+                <div id="Arabic" class="categories" onclick="searchResults('Sea Food')">
                     <img src="./assets/arabic.jpg" alt="" class="categoriesImg">
-                    <h3>Arabic</h3>
+                    <h3>Sea Food</h3>
                 </div>
-                <div id="Italian" class="categories">
+                <div id="Italian" class="categories" onclick="searchResults('Starter')">
                     <img src="./assets/italian.jpg" alt="" class="categoriesImg">
-                    <h3>Italian</h3>
+                    <h3>Starter</h3>
                 </div>
             </div>
         </div>
@@ -102,13 +110,20 @@
             </form>
         </div>
         <div id="resultsDiv">
-            <h1 id="categoryHeading">CATEGORIES AVAILABLE</h1>
+            <span id="categoryDisplay">
+                <h1 id="categoryHeading">AVAILABLE CATEGORIES</h1> <img src="./assets/close.png" alt="" id="closeButton"
+                    onclick="closeCategory()">
+            </span>
             <div id="loader"></div>
 
             <div class="results">
             </div>
 
         </div>
+        <footer>
+            <h1>Have a Great Day</h1>
+            <div class="credits">Made with ❤️ by Sarvesh</div>
+        </footer>
     </div>
 
 

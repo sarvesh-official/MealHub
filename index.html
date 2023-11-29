@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,21 +16,105 @@
     <nav>
         <a href=""><img src="./assets/logo.png" alt="" id="logo"></a>
         <a href="">HOME</a>
-        <a href="">CATEGORIES</a>
+        <a href="#resultsDiv">CATEGORIES</a>
         <a href="">CHEF</a>
-        <a href="https://www.buymeacoffee.com/sarveshofficial">BUY ME A COFFEE</a>
+        <a href="https://www.buymeacoffee.com/sarveshofficial" target="_blank">BUY ME A COFFEE</a>
         <div class="social">
-            <a href=""><img src="./assets/instagram.png" alt="" id="instagram"></a>
-            <a href=""><img src="./assets/facebook.png" alt="" id="facebook"></a>
-            <a href=""><img src="./assets/x.png" alt="" id="x"></a>
+            <a href=""><img src="./assets/instagram.png" alt="" id="instagram" target="_blank"></a>
+            <a href=""><img src="./assets/facebook.png" alt="" id="facebook" target="_blank"></a>
+            <a href=""><img src="./assets/x.png" alt="" id="x" target="_blank"></a>
         </div>
     </nav>
 
     <!-- Main Div -->
 
+    <div class="main">
+        <!-- Hero Section -->
+        <div id="hero">
+            <div id="stack1">
+                <h1>Your Daily Solution to <span style="color: #F79A20;">Cook</span> What's for Today
+                </h1>
+                <div class="heroButtondiv">
+                    <button class="heroButtons" id="searchButton"><a href="#search">Search</a></button>
+                    <button class="heroButtons" id="viewAll"><a href="#resultsDiv">View All</a></button>
+                </div>
+            </div>
+
+            <img src="./assets/hero_pic.png" alt="">
+        </div>
+        <!-- Random Food for the Day -->
+        <div class="randomFoodDiv">
+            <div class="randomFood">
+                <img src="./assets/randommeal.png" alt="" id="randomDivHeading"
+                    onclick="document.getElementById('id01').style.display='block'">
+                <div class="w3-container">
+
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content w3-animate-top w3-card-4" id="ingredientHeader">
+                            <header class="w3-container w3-transparent">
+                                <span onclick="document.getElementById('id01').style.display='none'"
+                                    class="w3-button w3-display-topright w3-red w3-round-large">&times;</span>
+                                <h2>INGREDIENTS</h2>
+                            </header>
+                            <div class="w3-container ingredientsDiv">
+                                <ul id="ingredients">
+                                </ul>
+                                <div>
+
+                                </div>
+                            </div>
+                            <button class="button-86" role="button"><a href="" id="tutorial" target="_blank">WATCH
+                                    TUTORIAL</a></button>
+                        </div>
+                    </div>
+                </div>
+                <img src="" alt="" id="randomDishImg" onclick="document.getElementById('id01').style.display='block'">
+                <h2 id="randomDishName"></h2>
+            </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="popularDiv">
+            <p>CUSTOMER FAVORITES</p>
+            <h2>Popular Categories</h2>
+            <div class="categoryDiv">
+                <div id="indian" class="categories">
+                    <img src="./assets/indian.png" alt="" class="categoriesImg">
+                    <h3>Indian</h3>
+                </div>
+                <div id="chinese" class="categories">
+                    <img src="./assets/chinese.jpg" alt="" class="categoriesImg">
+                    <h3>Chinese</h3>
+                </div>
+                <div id="Arabic" class="categories">
+                    <img src="./assets/arabic.jpg" alt="" class="categoriesImg">
+                    <h3>Arabic</h3>
+                </div>
+                <div id="Italian" class="categories">
+                    <img src="./assets/italian.jpg" alt="" class="categoriesImg">
+                    <h3>Italian</h3>
+                </div>
+            </div>
+        </div>
+        <div class="searchDiv">
+            <form action="" class="searchbarDiv"><input type="text" placeholder="SEARCH A CATEGORY" id="search">
+                <img src="./assets/search.png" alt="" id="searchIcon">
+            </form>
+        </div>
+        <div id="resultsDiv">
+            <h1 id="categoryHeading">CATEGORIES AVAILABLE</h1>
+            <div id="loader"></div>
+
+            <div class="results">
+            </div>
+
+        </div>
+    </div>
 
 
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
 

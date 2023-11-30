@@ -17,6 +17,7 @@ async function randomFood() {
 
       // Adding ingredients and tutorial to youtube
       let ingredients = document.getElementById("ingredients");
+      ingredients.innerHTML = "";
       let tutorial = neededData[0]["strYoutube"];
       $("#tutorial").attr("href", tutorial);
 
@@ -156,3 +157,11 @@ function navigator() {
   let resultDiv = document.getElementById("resultsDiv");
   resultDiv.scrollIntoView({ behavior: "smooth" });
 }
+
+// Extras
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+  }, 200);
+});

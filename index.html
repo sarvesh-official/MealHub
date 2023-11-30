@@ -12,13 +12,13 @@
     <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
 </head>
 
-<body>
+<body class="fade-in">
     <!-- Navbar -->
     <nav>
         <a href="#" onclick="window.location.reload(true);"><img src="./assets/logo.png" alt="" id="logo"></a>
         <a href="#" onclick="window.location.reload(true);">HOME</a>
-        <a href="#resultsDiv">CATEGORIES</a>
-        <a href="">CHEF</a>
+        <a href="#randomDivHeading">CATEGORIES</a>
+        <a href="#randomDishImg">TODAY'S DISH</a>
         <a href="https://www.buymeacoffee.com/sarveshofficial" target="_blank">BUY ME A COFFEE</a>
         <div class="social">
             <!-- Twitter -->
@@ -41,7 +41,7 @@
         <!-- Hero Section -->
         <div id="hero">
             <div id="stack1">
-                <h1>Your Daily Solution to <span style="color: #F79A20;">Cook</span> What's for Today
+                <h1>Your Daily Solution to <span style="color: #F79A20;">Cook & Discover</span> New Recipes
                 </h1>
                 <div class="heroButtondiv">
                     <button class="heroButtons" id="searchButton"><a href="#search">Search</a></button>
@@ -77,7 +77,11 @@
                         </div>
                     </div>
                 </div>
-                <img src="" alt="" id="randomDishImg" onclick="document.getElementById('id01').style.display='block'">
+                <div>
+                    <img src="" alt="" id="randomDishImg"
+                        onclick="document.getElementById('id01').style.display='block'">
+                    <img src="./assets/reload.png" alt="" id="reloadButton" onclick="randomFood()">
+                </div>
                 <h2 id="randomDishName"></h2>
             </div>
         </div>

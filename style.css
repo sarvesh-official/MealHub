@@ -569,7 +569,7 @@ nav *:hover {
 
 
 .Meal {
-    /* cursor: pointer; */
+    cursor: pointer;
     width: 300px;
     min-height: 350px;
     max-height: auto;
@@ -583,6 +583,22 @@ nav *:hover {
     background: #FFF;
     color: #000000;
     box-shadow: 2px 9px 42px 0px rgba(0, 0, 0, 0.08);
+}
+
+#dishName {
+    font-style: italic;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 3rem;
+}
+
+.ingredientsDiv {
+    text-align: center;
+}
+
+.Meal:hover {
+    background-color: #F79A20;
+    transform: scale(1.01);
 }
 
 .mealImg {
@@ -606,7 +622,7 @@ footer {
 }
 
 .credits {
-    color: #C3C3C3;
+    color: #ffffff;
     width: 90%;
     margin: auto;
     display: flex;

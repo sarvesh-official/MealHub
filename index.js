@@ -22,7 +22,7 @@ async function randomFood() {
       $("#tutorial").attr("href", tutorial);
 
       for (let i = 1; i < 21; i++) {
-        if (neededData[0]["strIngredient" + [i]].trim() != "") {
+        if (neededData[0]["strIngredient" + [i]] != "") {
           ingredients.innerHTML += `<li>${
             neededData[0]["strIngredient" + [i]]
           }</li>`;
@@ -83,7 +83,7 @@ async function searchResults(query) {
 
       data = res.data.meals;
       for (let i = 0; i < data.length; i++) {
-        card += `<div class="Meal">
+        card += `<div class="Meal" onclick="getDish(this)">
                 <img src="${data[i]["strMealThumb"]}" alt="" class="mealImg">
                 <h2 class="mealTitle">${data[i]["strMeal"]}</h2>
             </div>`;
@@ -136,9 +136,17 @@ searchInput.addEventListener("keydown", function (event) {
 
 // Click function in available categories
 function getCat(element) {
-  var mealTitle = element.querySelector(".resultTitle").innerText;
-  inputValue = mealTitle;
+  let catTitle = element.querySelector(".resultTitle").innerText;
+  inputValue = catTitle;
   searchResults(inputValue);
+  closeButton.style.display = "inline";
+}
+
+// To get the particual dish
+function getDish(element) {
+  document.getElementById("id01").style.display = "block";
+  let mealTitle = element.querySelector(".mealTitle").innerText;
+  displayDish(mealTitle);
   closeButton.style.display = "inline";
 }
 
@@ -149,6 +157,40 @@ function closeCategory() {
   closeButton.style.display = "none";
   inputValue = "";
   $("#categoryHeading").html("AVAILABLE CATEGORIES");
+}
+
+// Modal for each Dishes
+
+async function displayDish(query) {
+  url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+  let neededData = [];
+  let response = await axios
+    .get(url)
+    .then((res) => {
+      //   Adding the Image and name to HTML
+
+      neededData.push(res.data.meals[0]);
+      let dishName = neededData[0]["strMeal"];
+      let dishImage = neededData[0]["strMealThumb"];
+      // console.log(dishName);
+
+      // Adding ingredients and tutorial to youtube
+      let ingredients = document.getElementById("ingredients");
+      $("#dishName").html(`Dish Name  : ${dishName}`);
+      ingredients.innerHTML = "";
+      let tutorial = neededData[0]["strYoutube"];
+      $("#tutorial").attr("href", tutorial);
+
+      for (let i = 1; i < 21; i++) {
+        if (neededData[0]["strIngredient" + [i]] != "") {
+          ingredients.innerHTML += `<li>${
+            neededData[0]["strIngredient" + [i]]
+          }</li>`;
+        }
+      }
+    })
+
+    .catch((err) => console.error(err));
 }
 
 // Smooth Navigation

@@ -66,6 +66,8 @@ results();
 // Category Search Result
 
 async function searchResults(query) {
+  inputValue = query;
+  navigator();
   let url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${query}`;
   let card = "";
   let loader = document.getElementById("loader");
@@ -77,7 +79,7 @@ async function searchResults(query) {
     .then((res) => {
       loader.style.display = "none";
       $("#categoryHeading").html(inputValue);
-      $("#categoryHeading").html(query);
+
       data = res.data.meals;
       for (let i = 0; i < data.length; i++) {
         card += `<div class="Meal">
@@ -145,7 +147,7 @@ function closeCategory() {
   results();
   closeButton.style.display = "none";
   inputValue = "";
-  $("#categoryHeading").html(inputValue);
+  $("#categoryHeading").html("AVAILABLE CATEGORIES");
 }
 
 // Smooth Navigation

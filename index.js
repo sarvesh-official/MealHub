@@ -70,13 +70,14 @@ async function searchResults(query) {
   let card = "";
   let loader = document.getElementById("loader");
   loader.style.display = "block";
+  closeButton.style.display = "inline";
 
   let response = await axios
     .get(url)
     .then((res) => {
       loader.style.display = "none";
       $("#categoryHeading").html(inputValue);
-
+      $("#categoryHeading").html(query);
       data = res.data.meals;
       for (let i = 0; i < data.length; i++) {
         card += `<div class="Meal">
@@ -97,21 +98,27 @@ var searchInput = document.getElementById("search");
 var inputValue = "";
 var searchButton = document.getElementById("searchIcon");
 var closeButton = document.getElementById("closeButton");
+
+// Using search button
 searchButton.onclick = () => {
-  if (inputValue == "") {
+  if (searchInput.value == "") {
     results();
     alert("Please enter a category!");
   } else {
+    inputValue = searchInput.value;
+    $("#categoryHeading").html(inputValue);
+    closeButton.style.display = "inline";
     searchResults(searchInput.value);
+    console.log(searchInput.value);
   }
 };
 searchInput.addEventListener("input", function (event) {
   inputValue = event.target.value;
 
-  if (inputValue == "") {
+  if (searchInput.value == "") {
     closeButton.style.display = "none";
   } else {
-    searchResults(inputValue);
+    searchResults(searchInput.value);
     closeButton.style.display = "inline";
   }
 });
@@ -120,7 +127,6 @@ searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
 
-    inputValue = event.target.value;
     searchResults(inputValue);
   }
 });
@@ -140,4 +146,11 @@ function closeCategory() {
   closeButton.style.display = "none";
   inputValue = "";
   $("#categoryHeading").html(inputValue);
+}
+
+// Smooth Navigation
+
+function navigator() {
+  let resultDiv = document.getElementById("resultsDiv");
+  resultDiv.scrollIntoView({ behavior: "smooth" });
 }

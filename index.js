@@ -144,7 +144,7 @@ function getCat(element) {
 
 // To get the particual dish
 function getDish(element) {
-  document.getElementById("id01").style.display = "block";
+  document.getElementById("id02").style.display = "block";
   let mealTitle = element.querySelector(".mealTitle").innerText;
   displayDish(mealTitle);
   closeButton.style.display = "inline";
@@ -175,11 +175,11 @@ async function displayDish(query) {
       // console.log(dishName);
 
       // Adding ingredients and tutorial to youtube
-      let ingredients = document.getElementById("ingredients");
-      $("#dishName").html(`Dish Name  : ${dishName}`);
+      let ingredients = document.getElementById("ingredients2");
+      $("#dishName2").html(`Dish Name  : ${dishName}`);
       ingredients.innerHTML = "";
       let tutorial = neededData[0]["strYoutube"];
-      $("#tutorial").attr("href", tutorial);
+      $("#tutorial2").attr("href", tutorial);
 
       for (let i = 1; i < 21; i++) {
         if (neededData[0]["strIngredient" + [i]] != "") {

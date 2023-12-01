@@ -59,7 +59,7 @@
 
                 <div class="w3-container">
                     <div id="id01" class="w3-modal">
-                        <div class="w3-modal-content w3-animate-top w3-card-4" id="ingredientHeader">
+                        <div class="w3-modal-content w3-animate-top w3-card-4 ingredientHeader">
                             <header class="w3-container w3-transparent">
                                 <span onclick="document.getElementById('id01').style.display='none'"
                                     class="w3-button w3-display-topright w3-red w3-round-large">&times;</span>
@@ -69,9 +69,7 @@
                                 <h3 id="dishName"></h3>
                                 <ul id="ingredients">
                                 </ul>
-                                <div>
 
-                                </div>
                             </div>
                             <button class="button-86" role="button"><a href="" id="tutorial" target="_blank">WATCH
                                     TUTORIAL</a></button>
@@ -110,6 +108,7 @@
                 </div>
             </div>
         </div>
+
         <div class="searchDiv">
             <form action="" class="searchbarDiv"><input type="text" placeholder="SEARCH A CATEGORY" id="search">
                 <img src="./assets/search.png" alt="" id="searchIcon">
@@ -121,7 +120,26 @@
                     onclick="closeCategory()">
             </span>
             <div id="loader"></div>
+            <div class="w3-container">
 
+                <div id="id02" class="w3-modal">
+                    <div class="w3-modal-content w3-animate-top w3-card-4 ingredientHeader">
+                        <header class="w3-container w3-transparent">
+                            <span onclick="document.getElementById('id02').style.display='none'"
+                                class="w3-button w3-display-topright w3-red w3-round-large">&times;</span>
+                            <h2>INGREDIENTS</h2>
+                        </header>
+                        <div class="w3-container ingredientsDiv">
+                            <h3 id="dishName2"></h3>
+                            <ul id="ingredients2">
+                            </ul>
+
+                        </div>
+                        <button class="button-86" role="button"><a href="" id="tutorial2" target="_blank">WATCH
+                                TUTORIAL</a></button>
+                    </div>
+                </div>
+            </div>
             <div class="results">
 
             </div>

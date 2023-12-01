@@ -14,7 +14,7 @@
 /* Body */
 body {
     padding-top: 2rem;
-    background: black;
+    background: rgb(0, 0, 0);
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
@@ -251,7 +251,7 @@ nav *:hover {
 
 /* Ingredients Modal */
 
-#ingredientHeader {
+.ingredientHeader {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -264,7 +264,7 @@ nav *:hover {
     backdrop-filter: blur(14.800000190734863px);
 }
 
-#ingredientHeader h2 {
+.ingredientHeader h2 {
     color: #000000;
     font-weight: 700;
 
@@ -273,6 +273,18 @@ nav *:hover {
 
 
 #ingredients {
+    padding-top: 20px;
+    display: grid;
+    justify-content: end;
+    column-gap: 80px;
+    row-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#ingredients2 {
     padding-top: 20px;
     display: grid;
     justify-content: end;
